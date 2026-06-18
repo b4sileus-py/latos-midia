@@ -116,8 +116,7 @@ main > section {
   text-transform: uppercase;
 }
 
-.button,
-.contact-list a {
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -132,9 +131,7 @@ main > section {
 }
 
 .button:hover,
-.button:focus-visible,
-.contact-list a:hover,
-.contact-list a:focus-visible {
+.button:focus-visible {
   background: transparent;
   color: var(--color-text);
   transform: translateY(-1px);
@@ -368,6 +365,85 @@ button:focus-visible {
   margin-top: var(--space-lg);
 }
 
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: transparent;
+  transition:
+    transform var(--transition),
+    opacity var(--transition),
+    border-color var(--transition);
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.social-icon-link:hover,
+.social-icon-link:focus-visible {
+  border-color: var(--color-text);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.social-icon-link:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+.floating-social {
+  position: fixed;
+  right: 1rem;
+  bottom: 5.5rem;
+  z-index: 19;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.floating-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-light);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    opacity var(--transition);
+}
+
+.floating-social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.floating-social-link:hover,
+.floating-social-link:focus-visible {
+  border-color: var(--color-text);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+.floating-social-link:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 4px;
+}
+
 .site-footer {
   padding-block: var(--space-lg);
   background: var(--color-bg);
@@ -544,6 +620,24 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 699px) {
+  .floating-social {
+    right: 0.75rem;
+    bottom: 5rem;
+    gap: 0.6rem;
+  }
+
+  .floating-social-link {
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-social-icon {
+    width: 27px;
+    height: 27px;
+  }
+}
+
 @media (min-width: 1024px) {
   :root {
     --header-offset: 96px;
@@ -572,8 +666,10 @@ button:focus-visible {
   .portfolio-item:focus-within img,
   .button:hover,
   .button:focus-visible,
-  .contact-list a:hover,
-  .contact-list a:focus-visible,
+  .social-icon-link:hover,
+  .social-icon-link:focus-visible,
+  .floating-social-link:hover,
+  .floating-social-link:focus-visible,
   .back-to-top,
   .js .reveal-item,
   .js .reveal-item.is-visible {
